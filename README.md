@@ -17,7 +17,9 @@ Etape 1 : sur l'ancien serveur
 Stoppez la sauvegarde et démontez le support de sauvegarde (via l'interface).
 Notez les modules installés.
 Mettez le serveur à jour et à niveau en squeeze ou wheezy 
-# se3_update_system.sh 
+```sh
+se3_update_system.sh 
+```
 Créez un dossier scripts :
 # mkdir /root/scripts
 Copiez les scripts sur l'ancien serveur dans le dossier /root/scripts (par winscp ou en montant une clé usb).
