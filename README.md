@@ -59,8 +59,10 @@ Ce script crée un répertoire dans /var/se3/save à la date du jour. les param�
 A la fin du script les services samba et dhcp sont stoppés et l'adresse ip est modifiée.
 Exécutez le script 3-sauveACL.sh sur l'ancien serveur si vous souhaitez sauvegarder les ACL. CETTE ETAPE EST FACULTATIVE !!
 A partir de là vous pouvez installer le nouveau serveur. 
-** Etape 2 : sur le nouveau serveur**
-Lancez l'installation de Debian 7 à partir du CD ou d'une clé usb. Documentation ici :
+** Etape 2 : sur le nouveau serveur **
+Lancez l'installation de Debian 7 à partir du CD ou d'une clé usb.
+
+Documentation ici :
 https://github.com/SambaEdu/se3-docs/blob/master/se3-installation/installationmanuelle.md
 Pour le partitionnement j'utilise plutôt les valeurs suivantes pour un DD de 1To :
 - Partition primaire / : 20 GB 
