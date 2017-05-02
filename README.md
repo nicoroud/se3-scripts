@@ -7,7 +7,8 @@ http://wwdeb.crdp.ac-caen.fr/mediase3/index.php/FaqInstallnewserver
 et du script de sauvegarde
 https://raw.githubusercontent.com/SambaEdu/se3master/master/usr/share/se3/sbin/sauve_se3.sh
 
-Liste des scripts utilisés
+** Liste des scripts utilisés : **
+
 0-cree_se3data.sh
 
 2-sauvegardeConfig.sh
@@ -56,10 +57,12 @@ Ce script crée un répertoire dans /var/se3/save à la date du jour. les param�
 - La configuration samba (SID, conf. des partages personnalisés, imprimantes)
 - L'annuaire ldap
 - La base de donnée MySQL se3db
-A la fin du script les services samba et dhcp sont stoppés et l'adresse ip est modifiée.
-Exécutez le script 3-sauveACL.sh sur l'ancien serveur si vous souhaitez sauvegarder les ACL. CETTE ETAPE EST FACULTATIVE !!
+A la fin du script les services samba et dhcp sont stoppés et l'adresse ip est modifiée. Exécutez le script 3-sauveACL.sh sur l'ancien serveur si vous souhaitez sauvegarder les ACL. CETTE ETAPE EST FACULTATIVE !!
+
 A partir de là vous pouvez installer le nouveau serveur. 
-## Etape 2 : sur le nouveau serveur
+
+## Etape 2 : sur le nouveau serveur
+
 Lancez l'installation de Debian 7 à partir du CD ou d'une clé usb.
 
 Documentation ici :
@@ -79,8 +82,7 @@ Créez un dossier scripts :
 ```sh
 # mkdir /root/scripts
 ```
-Copiez les scripts dans le dossier /root/scripts (par winscp ou en montant une clé usb).
-Allez dans le dossier
+Copiez les scripts dans le dossier /root/scripts (par winscp ou en montant une clé usb) puis allez dans le dossier
 ```sh
 # cd /root/scripts/
 ```
@@ -112,8 +114,7 @@ Lancez le script 5-restaureConfig.sh
 ```sh
 # bash 5-restaureConfig.sh
 ```
-Ce script restaure les paramètres samba, les configurations des imprimantes, l'annuaire ldap, la base de données se3db.
-Installez ensuite les modules du nouveau serveur. Si le serveur dhcp ne démarre pas, exécutez le script
+Ce script restaure les paramètres samba, les configurations des imprimantes, l'annuaire ldap, la base de données se3db.Installez ensuite les modules du nouveau serveur. Si le serveur dhcp ne démarre pas, exécutez le script
 ```sh
 # makedhcpdconf
 ```
