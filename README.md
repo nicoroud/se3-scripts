@@ -9,11 +9,16 @@ https://raw.githubusercontent.com/SambaEdu/se3master/master/usr/share/se3/sbin/s
 
 Liste des scripts utilisés
 0-cree_se3data.sh
+
 2-sauvegardeConfig.sh
+
 3-sauveACL.sh
+
 4-copie_datas.sh
+
 5-restaureConfig.sh
-Etape 1 : sur l'ancien serveur
+
+**Etape 1 : sur l'ancien serveur**
 Stoppez la sauvegarde et démontez le support de sauvegarde (via l'interface).
 Notez les modules installés.
 Mettez le serveur à jour et à niveau en squeeze ou wheezy 
@@ -48,13 +53,13 @@ Exécutez le script 2-sauvegardeConfig.sh sur l'ancien serveur :
 # bash 2-sauvegardeConfig.sh
 ```
 Ce script crée un répertoire dans /var/se3/save à la date du jour. les paramètres importants du serveur sont exportés :
-La configuration samba (SID, conf. des partages personnalisés, imprimantes)
-L'annuaire ldap
-La base de donnée MySQL se3db
+- La configuration samba (SID, conf. des partages personnalisés, imprimantes)
+- L'annuaire ldap
+- La base de donnée MySQL se3db
 A la fin du script les services samba et dhcp sont stoppés et l'adresse ip est modifiée.
 Exécutez le script 3-sauveACL.sh sur l'ancien serveur si vous souhaitez sauvegarder les ACL. CETTE ETAPE EST FACULTATIVE !!
 A partir de là vous pouvez installer le nouveau serveur. 
-Etape 2 : sur le nouveau serveur
+** Etape 2 : sur le nouveau serveur**
 Lancez l'installation de Debian 7 à partir du CD ou d'une clé usb. Documentation ici :
 https://github.com/SambaEdu/se3-docs/blob/master/se3-installation/installationmanuelle.md
 Pour le partitionnement j'utilise plutôt les valeurs suivantes pour un DD de 1To :
@@ -86,11 +91,12 @@ Exécutez le script 4-copie_datas.sh
 # bash 4-copie_datas.sh
 ```
 Ce script effectue les tâches suivantes :
-Installation de rsync
-Création des dossiers /var/lib/samba et /etc/se3
-Copie du dossier /var/se3/save de l'ancien serveur sur le nouveau
-Copie des fichiers secrets.tdb et setup_se3.data vers les emplacements qui conviennent
-Paramétrage du proxy pour wget et récupération du fichier install_phase2.sh pour wheezy
+- Installation de rsync
+- Création des dossiers /var/lib/samba et /etc/se3
+- Copie du dossier /var/se3/save de l'ancien serveur sur le nouveau
+- Copie des fichiers secrets.tdb et setup_se3.data vers les emplacements qui conviennent
+- Paramétrage du proxy pour wget et récupération du fichier install_phase2.sh pour wheezy
+
 Il ne vous reste plus qu'à installer sambaedu :
 ```sh
 # bash /root/install_phase2.sh
