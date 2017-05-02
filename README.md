@@ -18,7 +18,7 @@ Liste des scripts utilisés
 
 5-restaureConfig.sh
 
-**Etape 1 : sur l'ancien serveur**
+## Etape 1 : sur l'ancien serveur
 Stoppez la sauvegarde et démontez le support de sauvegarde (via l'interface).
 Notez les modules installés.
 Mettez le serveur à jour et à niveau en squeeze ou wheezy 
@@ -59,7 +59,7 @@ Ce script crée un répertoire dans /var/se3/save à la date du jour. les param�
 A la fin du script les services samba et dhcp sont stoppés et l'adresse ip est modifiée.
 Exécutez le script 3-sauveACL.sh sur l'ancien serveur si vous souhaitez sauvegarder les ACL. CETTE ETAPE EST FACULTATIVE !!
 A partir de là vous pouvez installer le nouveau serveur. 
-** Etape 2 : sur le nouveau serveur **
+## Etape 2 : sur le nouveau serveur
 Lancez l'installation de Debian 7 à partir du CD ou d'une clé usb.
 
 Documentation ici :
