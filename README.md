@@ -57,6 +57,7 @@ Ce script crée un répertoire dans /var/se3/save à la date du jour. les param�
 - La configuration samba (SID, conf. des partages personnalisés, imprimantes)
 - L'annuaire ldap
 - La base de donnée MySQL se3db
+
 A la fin du script les services samba et dhcp sont stoppés et l'adresse ip est modifiée. Exécutez le script 3-sauveACL.sh sur l'ancien serveur si vous souhaitez sauvegarder les ACL. CETTE ETAPE EST FACULTATIVE !!
 
 A partir de là vous pouvez installer le nouveau serveur. 
