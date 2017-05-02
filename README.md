@@ -18,7 +18,7 @@ Stoppez la sauvegarde et démontez le support de sauvegarde (via l'interface).
 Notez les modules installés.
 Mettez le serveur à jour et à niveau en squeeze ou wheezy 
 ```sh
-se3_update_system.sh 
+# se3_update_system.sh 
 ```
 Créez un dossier scripts :
 # mkdir /root/scripts
