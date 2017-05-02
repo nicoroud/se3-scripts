@@ -7,7 +7,7 @@ http://wwdeb.crdp.ac-caen.fr/mediase3/index.php/FaqInstallnewserver
 et du script de sauvegarde
 https://raw.githubusercontent.com/SambaEdu/se3master/master/usr/share/se3/sbin/sauve_se3.sh
 
-** Liste des scripts utilisés : **
+__Liste des scripts utilisés :__
 
 0-cree_se3data.sh
 
