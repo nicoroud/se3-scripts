@@ -67,7 +67,7 @@ A partir de là vous pouvez installer le nouveau serveur.
 Lancez l'installation de Debian 7 à partir du CD ou d'une clé usb.
 
 Documentation ici :
-https://github.com/SambaEdu/se3-docs/blob/master/se3-installation/installationmanuelle.md
+https://github.com/SambaEdu/se3-docs/blob/master/se3-installation/installationmanuelle.md  
 Pour le partitionnement j'utilise plutôt les valeurs suivantes pour un DD de 1To :
 - Partition primaire / : 20 GB 
 - Partition primaire swap : 4 GB
