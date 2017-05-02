@@ -32,6 +32,7 @@ Allez dans le dossier 
 Rendez les scripts exécutables 
 ```sh
 # chmod +x *
+```
 Exécutez le script 0-cree_se3data.sh
 ```sh
 # bash 0-cree_se3data.sh
@@ -40,6 +41,7 @@ Le script crée un fichier /var/se3/save/setup_se3.data.conf pour configurer le 
 Tapez
 ```sh
 #cat /var/se3/save/setup_se3.data.conf
+```
 pour l'afficher.
 Exécutez le script 2-sauvegardeConfig.sh sur l'ancien serveur :
 ```sh
@@ -56,11 +58,12 @@ Etape 2 : sur le nouveau serveur
 Lancez l'installation de Debian 7 à partir du CD ou d'une clé usb. Documentation ici :
 https://github.com/SambaEdu/se3-docs/blob/master/se3-installation/installationmanuelle.md
 Pour le partitionnement j'utilise plutôt les valeurs suivantes pour un DD de 1To :
-Partition primaire / : 20 GB 
-Partition primaire swap : 4 GB
-Partition logique /var : 40 GB
-Partition logique /var/se3 : 50 %
-Partition logique /home) : ce qui reste
+- Partition primaire / : 20 GB 
+- Partition primaire swap : 4 GB
+- Partition logique /var : 40 GB
+- Partition logique /var/se3 : 50 %
+- Partition logique /home) : ce qui reste
+
 Générez la clé du serveur et exportez-la vers l'ancien serveur, ce qui évitera la saisie systématique d'un mot de passe :
 ```sh
 # ssh-keygen && ssh-copy-id root@$IP_ANCIEN_SERVEUR
@@ -73,6 +76,7 @@ Copiez les scripts dans le dossier /root/scripts (par winscp ou en montant une c
 Allez dans le dossier
 ```sh
 # cd /root/scripts/
+```
 Rendez les scripts exécutables
 ```sh
 # chmod +x *
@@ -104,6 +108,7 @@ Ce script restaure les paramètres samba, les configurations des imprimantes, l'
 Installez ensuite les modules du nouveau serveur. Si le serveur dhcp ne démarre pas, exécutez le script
 ```sh
 # makedhcpdconf
+```
 Pour terminer vous pouvez exécuter le script se3 create_adminse3.sh
 ```sh
 # create_adminse3.sh
@@ -113,3 +118,5 @@ qui permet de vérifier la bonne compatibilité de l'annuaire avec samba 4.4
 RQ : si l'icône samba de la page de diagnostic est rouge, exécutez :
 ```sh
 # chmod 755 /etc/samba
+```
+
