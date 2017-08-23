@@ -4,11 +4,9 @@
 #cat /etc/se3/config_c.cache.sh
 # MYSQL ------------------------------------------
 # /etc/se3/config_o.cache.sh
-
 # LDAP ------------------------------------------
 #cat /etc/se3/config_l.cache.sh 
-
-#echo SAMBA ------------------------------------------
+#SAMBA ------------------------------------------
 #cat /etc/se3/config_m.cache.sh
 SETUPSE3=/var/se3/save/setup_se3.data
 echo "#!/bin/bash" > $SETUPSE3
