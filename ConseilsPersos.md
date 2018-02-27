@@ -7,11 +7,13 @@ mkdir -p "empty"
 rsync -a --delete empty/ /home/profiles/
 rm -rf "empty"
 ```
-Commandes pour conversion en utf8
+Commandes pour conversion en utf8, ne pas hésiter à lancer une session [screen](https://linux.developpez.com/formation_debian/screen.html "Lien vers la doc screen") pour la deuxième ligne
+
 ```sh
-fichier_log="encodageUTF8.log"
-/usr/bin/convmv --notest -f iso-8859-15 -t utf-8 -r /home 2&>1 | grep -v Skipping >> $fichier_log
-/usr/bin/convmv --notest -f iso-8859-15 -t utf-8 -r /var/se3 2&>1 | grep -v Skipping >> $fichier_log
+fichier_logh="encodageUTF8_home.log"
+fichier_logvs3="encodageUTF8_varse3.log"
+/usr/bin/convmv --notest -f iso-8859-15 -t utf-8 -r /home 2&>1 | grep -v Skipping >> $fichier_logh
+/usr/bin/convmv --notest -f iso-8859-15 -t utf-8 -r /var/se3 2&>1 | grep -v Skipping >> $fichier_logvs3
 ```
 
 Problème que j'ai déjà rencontré 3 fois lors d'une migration d'un sambaedu de squeeze vers wheezy :
