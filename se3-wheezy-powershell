@@ -24,6 +24,7 @@ $DEBIANISO = "D:\iso\debian\debian-7.11.0-amd64-CD-1.iso"
 ##fin de la déclaration des variables##
 
 #Création de la VM
+#Pas de génération 2 pour debian 7
 new-vm -Name $CNAME -NewVHDPath $HDLOC\$CNAME\$CNAME.vhdx -NewVHDSizeBytes $CVHDSIZE -SwitchName $SWITCHNAME -generation 1
 write-host "VM $CNAME crée."
 # On monte le cd debian 7
@@ -51,9 +52,9 @@ $vmdiskdrive = Get-VMHardDiskDrive -VMName $CNAME
 #On modifie la séquence de démarrage
 #Set-VMFirmware -vmname $CNAME -BootOrder $vmdvddrive,$vmdiskdrive
 #Set-VMFirmware -EnableSecureBoot Off -VMName $CNAME 
+Set-VM -Name $CNAME -AutomaticStartAction Start 
 #fin du script
-#Write-Host "Appuyer sur une touche pour fermer la fenetre ..."
-#$x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 Write-Host "Lancement de la VM."
 #Start-Sleep -s 10
-Start-VM -Name $CNAME 
+Start-VM -Name $CNAME
+ VMConnect.exe "localhost" $CNAME
