@@ -1,3 +1,5 @@
+** Quelques remarques et réflexions personnelles **
+
 Ne pas hésiter à supprimer les profils itinérants avant de migrer ou réinstaller un nouveau serveur :
 Cette commande crée un dossier EMPTY qui doit être vide et utilise rsync plutot que rm car c'est plus rapide.
 ```sh
