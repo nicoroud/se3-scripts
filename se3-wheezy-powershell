@@ -1,1 +1,59 @@
-test
+###Création d'une VM sambaedu pour HYPERV###
+###Samuel Gonzales - raip de Strasbourg
+
+## Variables d'installation ##
+## a modifier ##
+#allocation de la mémoire dynamique
+$RAMSTART = 2GB
+$RAMHIGH = 4GB
+$RAMLOW = 1GB
+#taille du disque dur
+$CVHDSIZE=800GB
+#Nom de la VM
+$CNAME="SAMBAEDU"
+#Emplacement du dossier de stockage des disques virtuels
+$HDLOC="D:\Hyper-V\Virtual Hard Disks"
+#Paramétrage du commutateur virtuel
+$SWITCHNAME="private"
+#Nombre de CPU (2 minimium)
+$CPU=2
+#Chemin vers l'iso debian 7.11
+$DEBIANISO = "D:\iso\debian\debian-7.11.0-amd64-CD-1.iso"
+#Chemin vers l'iso personnalisée
+#$DEBIANISO = "D:\iso\debian\my_wheezy_install.iso"
+##fin de la déclaration des variables##
+
+#Création de la VM
+new-vm -Name $CNAME -NewVHDPath $HDLOC\$CNAME\$CNAME.vhdx -NewVHDSizeBytes $CVHDSIZE -SwitchName $SWITCHNAME -generation 1
+write-host "VM $CNAME crée."
+# On monte le cd debian 7
+#Add-VMDvdDrive -vmname $CNAME 
+set-VMDvdDrive -VMname $CNAME -Path $DEBIANISO
+Get-VMDvdDrive -VMName $CNAME |select Path,Name
+#mettre le nombre de cpu à 2
+Set-VMProcessor -VMName $CNAME -Count $CPU
+#services d intégration : désactiver synchro de l'horloge car le serveur se synchronise via ntp, activer services d invité
+$SI_ENABLE = "Guest Service Interface"
+$SI_DISABLE = "Time Synchronization"
+Enable-VMIntegrationService -Name $SI_ENABLE -VMName $CNAME
+disable-VMIntegrationService -Name $SI_DISABLE -VMName $CNAME
+#affichage des services offerts
+Get-VMIntegrationService -name * -VMName $CNAME|select Name,Enabled |Format-Table
+#alloctaion de la mémoire dynamique
+Set-VMMemory $CNAME -DynamicMemoryEnabled 1 -StartupBytes $RAMSTART -MinimumBytes $RAMLOW -MaximumBytes $RAMHIGH 
+#affichage du paramétrage de la mémoire
+Get-VMMemory -vmname $CNAME
+#configuration de l'ordre de boot : dvd,disque (pas de réseau!)
+#on récupère la conf du lecteur DVD
+$vmdvddrive = Get-VMDvdDrive -VMName $CNAME
+#on récupère la conf du disque
+$vmdiskdrive = Get-VMHardDiskDrive -VMName $CNAME
+#On modifie la séquence de démarrage
+#Set-VMFirmware -vmname $CNAME -BootOrder $vmdvddrive,$vmdiskdrive
+#Set-VMFirmware -EnableSecureBoot Off -VMName $CNAME 
+#fin du script
+#Write-Host "Appuyer sur une touche pour fermer la fenetre ..."
+#$x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+Write-Host "Lancement de la VM."
+#Start-Sleep -s 10
+Start-VM -Name $CNAME 
