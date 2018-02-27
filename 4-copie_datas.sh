@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Ce script sert à copier les données d'un serveur à l'autre via le réseau."
+echo "Ce script sert à copier les informations utiles à la réinstallation d'un serveur via le réseau."
 SAVEDIR="/var/se3/save"
 echo "Installation rsync :"
 apt-get install rsync -y
