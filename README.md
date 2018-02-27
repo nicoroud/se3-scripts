@@ -26,6 +26,11 @@ Mettez le serveur à jour et à niveau en squeeze ou wheezy
 ```sh
 # se3_update_system.sh 
 ```
+Et pour migrer en wheezy
+```sh
+# se3_upgrade_wheezy.sh 
+```
+
 Créez un dossier scripts :
 ```sh
 # mkdir /root/scripts
